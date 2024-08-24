@@ -84,7 +84,7 @@
             <td th:text="${en.courceName}"></td>
             <td th:text="${en.classMode}"></td>
             <td th:text="${en.enqStatus}"></td>
-           <td><a class="nav-link active btn btn-primary" aria-current="page" href="#" >Edit</a></td>
+           <td><a class="nav-link active btn btn-primary" aria-current="page" th:href="@{'/editEnq?enqid='+${en.enqid}}">Edit</a></td>
 
         </tr>
 

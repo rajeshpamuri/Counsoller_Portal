@@ -8,9 +8,7 @@ import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -23,6 +21,13 @@ public class EnquyriController {
     @GetMapping("/enquirieForm")
     public String enquirieForm(Model model){
         model.addAttribute("enq",new Enquiry());
+        return "enq";
+    }
+
+    @GetMapping("/editEnq")
+    public String upadateEnq(@RequestParam("enqid") Integer enqId, Model model){
+        Enquiry enquriyById = enquriService.getEnquriyById(enqId);
+        model.addAttribute("enq",enquriyById);
         return "enq";
     }
 
